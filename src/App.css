@@ -1,0 +1,11 @@
+.App {
+   text-align: center;
+   background-image : url("./components/Img/633151.jpg");
+   background-repeat : no-repeat;
+   background-size : cover;
+   background-attachment: fixed;
+}
+.cards {
+   display:flex;
+}
+
