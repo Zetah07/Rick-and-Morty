@@ -1,46 +1,41 @@
 import "./App.css";
-import Card from "./components/Card.jsx";
+import Nav from "./components/Nav";
 import Cards from "./components/Cards.jsx";
-import SearchBar from "./components/SearchBar.jsx";
-import characters, { Rick } from "./data.js";
+import { useState } from "react";
 import Styles from "./components/Modules/Styles.module.css";
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+  function onSearch(character) {
+    fetch(`https://rickandmortyapi.com/api/character/${character}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert("No hay personajes con ese ID");
+        }
+      });
+  }
+
+  function onClose(id){
+    setCharacters(oldCharacters => 
+      oldCharacters.filter(char => char.id !==id)
+    )}
+
+
   return (
-    <>
-      <div className="App" style={{ padding: "25px" }}>
-        <div className={Styles.mainCardContainer}>
-          <Card
-            name={Rick.name}
-            species={Rick.species}
-            gender={Rick.gender}
-            image={Rick.image}
-            onClose={() => window.alert("Emulamos que se cierra la card")}
-          />
-        </div>
-        <hr />
-        {/* <div>
-          <Cards characters={characters} />
-        </div> */}
-        <div className={Styles.multiCardsContainer}>
-          {characters.map((character) => (
-            <Card
-              key={character.id}
-              name={character.name}
-              gender={character.gender}
-              species={character.species}
-              image={character.image}
-              onClose={() => window.alert("tuky")}
-            />
-          ))}
-        </div>
+    <div className="App" style={{ padding: "25px" }}>
+      <div className={Styles.mainCardContainer}>
+        <Nav onSearch={onSearch} placeholder=" Search U Character Here " />
+      </div>
         <hr />
         <div>
-          <SearchBar onSearch={(characterID) => window.alert(characterID)} />
+          <Cards onClose={onClose} characters={characters} />
         </div>
+
         <hr />
-      </div>
-    </>
+    </div>
   );
 }
 
