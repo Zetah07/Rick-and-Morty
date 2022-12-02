@@ -8,7 +8,7 @@ function handleChange(e) {
 }
 return (
    <div>
-      <input type="search" value={character} onChange={handleChange} />
+      <input placeholder="Search you character" type="search" value={character} onChange={handleChange} />
       <button onClick={()=>props.onSearch(character)} >Search</button>
    </div>
 );

@@ -4,11 +4,14 @@ import Detail from "./components/Detail";
 import Nav from "./components/Nav";
 import Cards from "./components/Cards.jsx";
 import { useState } from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Form from "./components/Form.jsx";
 import Styles from "./components/Modules/Styles.module.css";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const Location =useLocation();
+
   function onSearch(character) {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
       .then((response) => response.json())
@@ -31,10 +34,11 @@ function App() {
   <div className="Boddy">
     <div className="App" style={{ padding: "25px" }}>
       <div className={Styles.mainCardContainer}>
-        <Nav onSearch={onSearch} placeholder=" Search U Character Here " />
+      {Location.pathname === "/" ? null : <Nav onSearch={onSearch}/>} 
       </div>
       <hr />
       <Routes>
+        <Route path="/" element={<Form />}></Route>
         <Route
           path="/home"
           element={<Cards onClose={onClose} characters={characters} />}
