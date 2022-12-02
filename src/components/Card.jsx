@@ -1,4 +1,5 @@
 import Style from "./Modules/Styles.module.css";
+import { Link } from 'react-router-dom';
 
 export default function Card(props) {
   return (
@@ -6,7 +7,9 @@ export default function Card(props) {
       <div className={Style.card}>
         <div>
           <button onClick={()=>props.onClose(props.id)}>X</button>
-          <h2>{props.name}</h2>
+            <Link to={`/detail/${props.detailId}`}>
+              <h2>{props.name}</h2>
+            </Link>
         </div>
         <div>
           <h2>{props.species}</h2>
