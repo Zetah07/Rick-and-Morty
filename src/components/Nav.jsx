@@ -6,6 +6,7 @@ export default function Nav(props) {
   
   return (
     <div>
+      {/* <div ><img src="Rick-and-Morty.png" alt="rick" width="270px"/></div> */}
       <Link to={"/home"}>
         <span>HOME</span>
       </Link>

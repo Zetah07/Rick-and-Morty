@@ -1,45 +1,85 @@
-.mainCardContainer{
-    display:flex;
-    justify-content: center;
-    color:#58f7fc;
+@font-face {
+  font-family: "Get Schwifty";
+  src: url("../../assets/font/get_schwifty.ttf") format("opentype");
 }
-.multiCardsContainer{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    color: #5deef5;
+@font-face {
+    font-family: "Hate Your Writing";
+    src: url("../../assets/font/hate_your_writing.ttf") format("opentype");
+}
+/* 
+ */
+.mainCardContainer {
+  display: flex;
+  justify-content: center;
+  color: #58f7fc;
+}
+.multiCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: #5deef5;
 }
 
 .cardContainer {
-    opacity: 0.8;
-    width: 190px;
-    /* height: 254px; */
-    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
-    border-radius: 20px;
-    transition: all .3s;
-   }
-   
-   .card {
-    opacity: 0.8;
-    width: 190px;
-    /* height: 254px; */
-    background-color: #010010;
-    border-radius:  0.5em;
-    transition: all .2s;
-   }
-   
-   .card:hover {
-    opacity: 1;
-    transform: scale(0.98);
-    border-radius: 20px;
-   }
-   
-   .cardContainer:hover {
-    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
-   }
-.cardImage{
-    width: 150px;
-    border-radius:  0.5em;
-    margin-bottom: 1em;
-
+  opacity: 0.8;
+  width: 200px;
+  /* height: 254px; */
+  background-image: linear-gradient(163deg, #00ffee 0%, #cc00ff 100%);
+  border-radius: 20px;
+  transition: all 0.3s;
 }
+
+.card {
+  opacity: 0.8;
+  width: 200px;
+  height: 100%;
+  background-color: #010010;
+  border-radius: 0.5em;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  opacity: 1;
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+
+.cardContainer:hover {
+  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
+}
+
+
+.cardCloseButton {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 1em;
+    padding: 0.2em;
+    border-radius: 50%;
+    font-weight: bolder;
+    border: 2px solid #cc00ff;
+    background-color: #cc00ff;
+    color: white;
+  }
+  
+  .cardTitle {
+    margin-top: auto;
+    padding-top: 0.5em;
+    font-family: "Get Schwifty";
+    color: #00ff75;
+  }
+  
+  .cardTextContainer {
+    margin: 0em 1em;
+    font-family: "Hate Your Writing";
+    color: #5deef5;
+    display: flex;
+    padding: auto;
+    justify-content: space-around;
+    font-size: calc(1em+1vw);
+    letter-spacing: 0.5ch;
+  }
+  .cardImage {
+    width: 150px;
+    border-radius: 0.5em;
+    /* margin-bottom: 1em; */
+  }

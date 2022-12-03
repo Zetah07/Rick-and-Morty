@@ -1,10 +1,14 @@
 import React from "react";
 import { validation } from "./validation";
+import LoginForm from "./Modules/Login.module.css";
+
 
 export default function Form(props) {
     const [userData, setUserData] = React.useState({
-    username: "",
-    password: "",
+    // username: "",
+    // password: "",
+    username: "gerencia@Soyhenry.com",
+    password: "Tuki07",
     });
 
     const [errors, setErrors] = React.useState({
@@ -33,7 +37,7 @@ function handleSubmit(e) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={LoginForm.formLogin}>
                 <label htmlFor="username">Username</label>
                 <input
                     type="text"
@@ -50,8 +54,13 @@ function handleSubmit(e) {
                     onChange={handleInputChange}
                 />
                 {errors.password && <p>{errors.password}</p>}
-
-                <button type="submit">Submit</button>
+                
+                <hr/>
+                <div >
+                <button type="submit" className={LoginForm.buttonSubmit}>LOGIN</button>
+                </div>
+                <p><a href='#'>Lost your password?</a></p>
+               
             </form>
         </div>
     );

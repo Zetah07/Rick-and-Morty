@@ -50,9 +50,10 @@ function App() {
   }
 
   return (
-  <div className="Boddy">
+  <div className="Boddy" >
     <div className="App" style={{ padding: "25px" }}>
-      <div className={Styles.mainCardContainer}>
+      
+      <div className={Styles.mainCardContainer} >
       {Location.pathname === "/" ? null : <Nav onSearch={onSearch}/>} 
       </div>
       <hr />
