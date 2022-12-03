@@ -1,16 +1,35 @@
+import Styles from "./components/Modules/Styles.module.css";
+import { useState, useEffect } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import About from "./components/About";
 import Detail from "./components/Detail";
 import Nav from "./components/Nav";
 import Cards from "./components/Cards.jsx";
-import { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
 import Form from "./components/Form.jsx";
-import Styles from "./components/Modules/Styles.module.css";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [access, setAcces]= useState(false);
+
+  const username= "gerencia@Soyhenry.com";
+  const password= "Tuki07";
+
   const Location =useLocation();
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    !access && navigate("/");
+  },[access, navigate]);
+
+  function login(userData){
+    if (userData.username=== username && userData.password === password){
+      setAcces(true);
+      navigate("/home")
+    }else{
+      alert("Usuario o contraseña incorrecta")
+    }
+  }
 
   function onSearch(character) {
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
@@ -38,7 +57,7 @@ function App() {
       </div>
       <hr />
       <Routes>
-        <Route path="/" element={<Form />}></Route>
+        <Route path="/" element={<Form login={login} />}></Route>
         <Route
           path="/home"
           element={<Cards onClose={onClose} characters={characters} />}

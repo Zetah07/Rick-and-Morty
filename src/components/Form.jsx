@@ -1,7 +1,7 @@
 import React from "react";
 import { validation } from "./validation";
 
-export default function Form() {
+export default function Form(props) {
     const [userData, setUserData] = React.useState({
     username: "",
     password: "",
@@ -12,7 +12,7 @@ export default function Form() {
     password:"",
     });
 
-    function handleChange(e) {
+    function handleInputChange(e) {
         setErrors(
             validation({
                 ...userData,
@@ -26,26 +26,33 @@ export default function Form() {
     });
 }
 
+function handleSubmit(e) {
+    e.preventDefault();
+        props.login(userData);
+}
+
     return (
         <div>
-            <label htmlFor="username">Username</label>
-            <input
-                type="text"
-                name="username"
-                value={userData.username}
-                onChange={handleChange}
-            />
-            {errors.username && <p>{errors.username}</p>}
-            <label htmlFor="password">Password</label>
-            <input
-                type="password"
-                name="password"
-                value={userData.password}
-                onChange={handleChange}
-            />
-            {errors.password && <p>{errors.password}</p>}
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username</label>
+                <input
+                    type="text"
+                    name="username"
+                    value={userData.username}
+                    onChange={handleInputChange}
+                />
+                {errors.username && <p>{errors.username}</p>}
+                <label htmlFor="password">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    value={userData.password}
+                    onChange={handleInputChange}
+                />
+                {errors.password && <p>{errors.password}</p>}
 
-            <button type="submit">Submit</button>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     );
 }
