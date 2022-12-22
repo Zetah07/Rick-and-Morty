@@ -16,7 +16,7 @@ export default function Nav(props) {
       </Link>
       <div>
         Barra de Navegación
-        <SearchBar onSearch={props.onSearch} />
+        <SearchBar  onSearch={props.onSearch} />
       </div>
     </div>
   ) 

@@ -10,28 +10,37 @@ import Form from "./components/Form.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [access, setAcces]= useState(false);
+  const [access, setAcces] = useState(false);
 
-  const username= "gerencia@Soyhenry.com";
-  const password= "Tuki07";
+  const username = "gerencia@Soyhenry.com";
+  const password = "Tuki07";
 
-  const Location =useLocation();
+  const Location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(()=>{
+  useEffect(() => {
     !access && navigate("/");
-  },[access, navigate]);
+  }, [access, navigate]);
 
-  function login(userData){
-    if (userData.username=== username && userData.password === password){
+  function login(userData) {
+    if (userData.username === username && userData.password === password) {
       setAcces(true);
-      navigate("/home")
-    }else{
-      alert("Usuario o contraseña incorrecta")
+      navigate("/home");
+    } else {
+      alert("Usuario o contraseña incorrecta");
     }
   }
 
   function onSearch(character) {
+    let characterSistem = {};
+    if (character.length >= 1) {
+      characterSistem = characters.find(
+        (char) => char.id === parseInt(`${character}`)
+      );
+      }
+    if (characterSistem) {
+      window.alert(`The character is ${character} ,copied`)
+  }else{
     fetch(`https://rickandmortyapi.com/api/character/${character}`)
       .then((response) => response.json())
       .then((data) => {
@@ -42,6 +51,7 @@ function App() {
         }
       });
   }
+}
 
   function onClose(id) {
     setCharacters((oldCharacters) =>
@@ -50,24 +60,26 @@ function App() {
   }
 
   return (
-  <div className="Boddy" >
-    <div className="App" style={{ padding: "25px" }}>
-      
-      <div className={Styles.mainCardContainer} >
-      {Location.pathname === "/" ? null : <Nav onSearch={onSearch}/>} 
+    <div className="Boddy">
+      <div className="App" style={{ padding: "25px" }}>
+        <div className={Styles.mainCardContainer}>
+          {Location.pathname === "/" ? null : <Nav onSearch={onSearch} />}
+        </div>
+        <div>
+        
+        </div>
+        <hr />
+        <Routes>
+          <Route path="/" element={<Form login={login} />}></Route>
+          <Route
+            path="/home"
+            element={<Cards onClose={onClose} characters={characters} />}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/detail/:detailId" element={<Detail />} />
+        </Routes>
       </div>
-      <hr />
-      <Routes>
-        <Route path="/" element={<Form login={login} />}></Route>
-        <Route
-          path="/home"
-          element={<Cards onClose={onClose} characters={characters} />}
-        />
-        <Route path="/about" element={<About />} />
-        <Route path="/detail/:detailId" element={<Detail />} />
-      </Routes>
     </div>
-  </div>
   );
 }
 

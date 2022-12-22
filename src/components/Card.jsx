@@ -2,11 +2,12 @@ import Style from "./Modules/Styles.module.css";
 import { Link } from "react-router-dom";
 
 export default function Card(props) {
+  console.log('🚀 ~  file: Card.jsx:5 ~  Card ~  props', props);
   return (
     <div className={Style.cardContainer}>
       <div className={Style.card}>
         <section>
-          <Link to={`/detail/${props.detailId}`}>
+          <Link to={`/detail/${props.id}`}>
             <h2 className={Style.cardTitle}>{props.name}</h2>
           </Link>
         </section>
