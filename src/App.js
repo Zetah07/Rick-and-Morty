@@ -58,15 +58,18 @@ function App() {
       oldCharacters.filter((char) => char.id !== id)
     );
   }
+  function LogOut(){
+    setAcces(false);
+    navigate("/");
+  }
 
   return (
     <div className="Boddy">
       <div className="App" style={{ padding: "25px" }}>
-        <div className={Styles.mainCardContainer}>
-          {Location.pathname === "/" ? null : <Nav onSearch={onSearch} />}
-        </div>
         <div>
-        
+          {Location.pathname === "/" ? null : <Nav onSearch={onSearch} /> }
+          {Location.pathname === "/" ? null : <button onClick={LogOut}>Log Out</button>}
+          
         </div>
         <hr />
         <Routes>

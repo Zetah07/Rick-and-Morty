@@ -5,7 +5,6 @@ import { useParams, useNavigate} from "react-router-dom";
 
 export default function Detail() {
     const { detailId } = useParams();
-    console.log('🚀 ~  file: Detail.jsx:7 ~  Detail ~  detailId', detailId);
     const navigate =useNavigate();
     const [character, setCharacter] = useState("");
     
@@ -13,7 +12,6 @@ export default function Detail() {
         fetch(`https://rickandmortyapi.com/api/character/${detailId}`)
         .then((response) => response.json())
         .then((char) => {
-            console.log('🚀 ~miami me lo confirmo  :', char);
             
             if (char.name) {
                 setCharacter(char);
@@ -21,9 +19,10 @@ export default function Detail() {
                 window.alert("No hay personajes con ese ID");
             }
         })
-        // .catch((err) => {
-        //     window.alert("No hay personajes con ese ID");
-        // });
+        .catch((err) => {
+            window.alert("No hay personajes con ese ID");
+            console.err(err);
+        });
         return setCharacter({});
     }, []);
 
@@ -36,7 +35,8 @@ export default function Detail() {
             <h2>STATUS:{character.status}</h2>
             <h2>ESPEIE:{character.species}</h2>
             <h2>GENERO:{character.gender}</h2>
-            <h2>ORIGIN:{character.origin}</h2>
+            <h2>ORIGIN:{character.origin?.name}</h2>
+            <img src={character.image} alt='' />
         </div>
         );
 }

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from "./SearchBar";
 
 export default function Nav(props) {
-  
+
   
   return (
     <div>
@@ -18,6 +18,7 @@ export default function Nav(props) {
         Barra de Navegación
         <SearchBar  onSearch={props.onSearch} />
       </div>
+      
     </div>
   ) 
 }

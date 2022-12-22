@@ -2,7 +2,6 @@ import Style from "./Modules/Styles.module.css";
 import { Link } from "react-router-dom";
 
 export default function Card(props) {
-  console.log('🚀 ~  file: Card.jsx:5 ~  Card ~  props', props);
   return (
     <div className={Style.cardContainer}>
       <div className={Style.card}>

@@ -83,3 +83,9 @@
     border-radius: 0.5em;
     /* margin-bottom: 1em; */
   }
+  .about{
+    color: #00ff2f;
+    font-size: 1.7rem;
+    font-family: "Hate Your Writing";
+    letter-spacing: 0.5ch;
+  }
