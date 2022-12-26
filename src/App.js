@@ -1,4 +1,4 @@
-import Styles from "./components/Modules/Styles.module.css";
+
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
