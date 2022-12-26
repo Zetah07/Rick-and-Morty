@@ -7,8 +7,8 @@ function handleChange(e) {
    setCharacter(e.target.value);
 }
 let handleKeyPress = (event) => {
-   if (event.key === "Enter") {
-      this.onSearch();
+   if (event.keyCode === 13) {
+      props.onSearch(character);
    }
    };
 return (

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import SearchBar from "./SearchBar";
+import Style from "./Modules/Styles.module.css";
+
 
 export default function Nav(props) {
 
@@ -8,14 +10,14 @@ export default function Nav(props) {
     <div>
       {/* <div ><img src="Rick-and-Morty.png" alt="rick" width="270px"/></div> */}
       <Link to={"/home"}>
-        <span>HOME</span>
+        <span className={Style.Home__buttom}>HOME</span>
       </Link>
 
       <Link to={"/about"}>
-        <span>ABOUT</span>
+        <span className={Style.Home__buttom} >ABOUT</span>
       </Link>
-      <div>
-        Barra de Navegación
+      <div >
+        _______________
         <SearchBar  onSearch={props.onSearch} />
       </div>
       

@@ -7,6 +7,8 @@ import Detail from "./components/Detail";
 import Nav from "./components/Nav";
 import Cards from "./components/Cards.jsx";
 import Form from "./components/Form.jsx";
+import Style from "./components/Modules/Styles.module.css";
+
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -68,7 +70,7 @@ function App() {
       <div className="App" style={{ padding: "25px" }}>
         <div>
           {Location.pathname === "/" ? null : <Nav onSearch={onSearch} /> }
-          {Location.pathname === "/" ? null : <button onClick={LogOut}>Log Out</button>}
+          {Location.pathname === "/" ? null : <button  onClick={LogOut} >Log Out</button>}
           
         </div>
         <hr />
