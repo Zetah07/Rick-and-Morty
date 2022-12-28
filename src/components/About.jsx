@@ -9,11 +9,9 @@ export default function About() {
         <div >
             <div className={Styles.about}>
             <h1> 👋 Hi, I’m Johan Sebastian Castro</h1>
+            <h3> 👀 click my image to redirect to Github</h3>
             
             <a href= 'https://github.com/Zetah07' target='_blank'><img src="./838-01.jpg" alt="About" className={Styles.img__about}/> </a>
-                
-                
-                 
                 </div>
         </div>
     );

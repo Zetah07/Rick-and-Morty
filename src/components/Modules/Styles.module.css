@@ -104,21 +104,21 @@
     margin: 0.5em;
     padding: 0.5em;
     border-radius: 0.5em;
-    background-color:rgba(40, 40, 40, 0.209);
-    color: #cc00ff;
+    background-color:rgba(0, 0, 0, 0.513);
+    color: #5deef5;
     font-family: "Hate Your Writing";
     font-size: 1.2rem;
     letter-spacing: 0.5ch;
-    border: 2px solid #5deef5;
+    border: 2px solid #cc00ff;
     transition: all 0.3s;
     position:relative;
     
   }
 
   .Home__buttom:hover{
-    background-color: #010010;
-    color: #5deef5;
-    border: 2px solid #cc00ff;
+    background-color:rgba(0, 0, 0, 0.719);
+    color: #cc00ff;
+    border: 2px solid #5deef5;
   }
 
   .Home__buttom:active{
@@ -168,4 +168,3 @@
     transition: all 0.3s;
     position:relative;
   }
-
