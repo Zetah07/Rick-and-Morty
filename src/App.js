@@ -73,7 +73,7 @@ function App() {
           {Location.pathname === "/" ? null : <button  onClick={LogOut} >Log Out</button>}
           
         </div>
-        <hr />
+
         <Routes>
           <Route path="/" element={<Form login={login} />}></Route>
           <Route
